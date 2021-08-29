@@ -1,0 +1,140 @@
+TỔNG HỢP KIẾN THỨC NGÔN NGỮ LẬP TRÌNH RUST
+
+Bài 1: Giá trị và kiểu dữ liệu
+    * u8 -u64: Số nguyên không dấu tương ứng với x bit
+    * i8 - i64: Số nguyên có dấu tương ứng với c bit
+    * f32 - f64: Số thực không dấu tương ứng với x bit
+    * bool: Kiểu luận lí đúng hoặc sai
+    * char: Kí tự
+    * &str: Kiểu chuỗi
+
+Bài 2: Biểu thức và câu lệnh
+
+Bài 3: Rẽ nhánh và vòng lặp
+
+Bài 4: Hàm
+    4.1: Hàm không trả về giá trị
+    4.2 Hàm trả về giá trị
+        Ex1:
+        fn power(input: ni32) => i32 {
+            n *n
+        };
+
+        Ex2:
+        fn power(input: ni32) => i32 {
+            if(input > 1000000000) {
+                println!("Input is too valid");
+                return -1;
+            }
+            n * n
+        };
+    4.3: Hàm lồng nhau
+
+Bài 5: String chuỗi ký tự
+    5.1: Chuỗi tĩnh: &str là chuỗi có dộ dài cố định, các ký tự trong chuỗi không được thay đổi.
+        Ex:
+        fn main() {
+            let blog = "Tit16 Studio";
+            let url: &str = "tit16.com";
+        };
+    5.2: Chuỗi động: String là chuỗi có thể thay đổi ký tự và độ dài của nó. Chúng ta cũng có thể tạo chuỗi rỗng.
+        Ex:
+        fn main() {
+            let url = String::new();
+        };
+        * with_capacity(): Xin cấp phát thêm bộ nhớ khi chúng ta muốn thay đổi độ dài của chuỗi.
+        Ex:
+        fn main() {
+            let url = String::with_capacity(10);
+        };
+        *  to_string(): Để ép kiểu dữ liệu sang &str
+        Ex:
+        fn main() {
+            let url = String::with_capacity(10);
+            let urlStr = url.to_string();
+            // or 
+            let urlStr = &url;
+        };
+        * push() và push_str(): Để đưa ký tự vào chuỗi
+        Ex:
+        fn main() {
+            let mut url = String::new();
+            url.push(‘l’);
+            url.push_str("ee.aki");
+            println!("{}", url);
+        }
+        * len(): Dùng để lấy độ dài trong chuỗi
+        * chars(), split(), replace()...
+
+Bài 6: Array, Vector
+    6.1: Array: Là kiểu dữ liệu lưu trữ theo dạng mảng, tương tự như các ngôn ngữ lập trình khác
+        Ex:
+        fn main() {
+            let arr: [i32; 3] = [23, 856, 9302];
+            for i in 0..arr.len() {
+                println!("{}", arr[i]);
+            }
+        }
+        * len(): Lấy ra đọ dài của mảng
+    6.2: Vector: Chức năng tương tự Array nhưng có thể thay đổi kích thược của mảng
+        Ex:
+        fn main() {
+            let vec_number: Vec<i32> = Vec::new();
+            let mut numbers = vec![423, 943, 192];
+            numbers.push(13);
+            numbers.push(52);
+            println!("{:?}", numbers); // [423, 943, 192, 13, 52]
+            numbers.pop();
+            println!("{:?}", numbers); // [423, 943, 192, 13]
+        }
+
+Bài 7: Tuple
+    * Cải tiến hơn Aray và Vector vì có thể lưu các phần tử với kiểu dữ liệu khác nhau
+    Ex:
+    fn main() {
+        let tup = ("lee.aki", 2021);
+        println!("name = {}", tup.0); // tup(1) = lee.aki
+        println!("year = {}", tup.1); // tup(2) = 2021
+        // or
+        let (name, year) = tup;
+        println!("name = {}", name);
+        println!("year = {}", year);
+    }
+    * Hàm return tupple
+    Ex:
+    fn personal_info(name: &str, age: i32) -> (&str, i32) {
+        return (name, age);
+    }
+
+Bài 8: Struct
+    * Trong quá trình code chúng ta sẽ cần gom các biến liên quán với nhau lại để tạo ra một kiểu dữ liệu mới
+    8.1: tuple-struct 
+    Ex:
+    struct pserson(&’static str, i32);
+    fn main() {
+        let owner = blog("lee.aki", 2021);
+    }
+    8.2: Struct thông thường
+    struct blog{
+        name: &’static str,
+        date: i32
+        }
+        fn main() {
+        let mut owner = blog{
+        name: "lee.aki", 
+        date: 2021
+        };
+        println!("{} was launched in {}", owner.name, owner.date);
+    }
+
+Bài 9: Enum
+    Ex: 
+    enum State {
+        Locked,
+        Failed,
+        Unlocked
+    }
+
+
+
+
